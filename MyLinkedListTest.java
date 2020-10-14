@@ -1,3 +1,16 @@
+  GNU nano 4.9.3                MyLinkedListTest.java                 Modified
+
+
+
+
+
+
+
+
+
+
+
+
 package com.capgemini.mylinkedlist;
 import static org.junit.Assert.*;
 import org.junit.Assert;
@@ -110,6 +123,23 @@ public class MyLinkedListTest
     	myLinkedList.append(myThirdNode);
     	myLinkedList.insert(myFirstNode,mySecondNode);
     	myLinkedList.searchKeyAndInsertNode(30,myFourthNode);
+    	myLinkedList.printMyNode();
+    	MyNode<Integer> newAddedNode= (MyNode<Integer>) myLinkedList.searchKeyAndInsertNode(30,myFourthNode);
+    	Assert.assertEquals(newAddedNode,mySecondNode);
+	}
+	@Test
+	public void givenSearchKeyRemoveTheNode_ShouldPass() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(70);
+    	MyNode<Integer> myFourthNode=new MyNode<Integer>(40);
+    	MyLinkedList myLinkedList=new MyLinkedList();
+    	myLinkedList.add(myFirstNode);
+    	myLinkedList.append(myThirdNode);
+    	myLinkedList.insert(myFirstNode,mySecondNode);
+    	myLinkedList.searchKeyAndInsertNode(30,myFourthNode);
+    	myLinkedList.searchKeyAndRemove(40);
     	myLinkedList.printMyNode();
     	MyNode<Integer> newAddedNode= (MyNode<Integer>) myLinkedList.searchKeyAndInsertNode(30,myFourthNode);
     	Assert.assertEquals(newAddedNode,mySecondNode);
