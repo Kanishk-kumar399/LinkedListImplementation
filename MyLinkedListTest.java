@@ -1,16 +1,3 @@
-  GNU nano 4.9.3                MyLinkedListTest.java                 Modified
-
-
-
-
-
-
-
-
-
-
-
-
 package com.capgemini.mylinkedlist;
 import static org.junit.Assert.*;
 import org.junit.Assert;
@@ -143,5 +130,21 @@ public class MyLinkedListTest
     	myLinkedList.printMyNode();
     	MyNode<Integer> newAddedNode= (MyNode<Integer>) myLinkedList.searchKeyAndInsertNode(30,myFourthNode);
     	Assert.assertEquals(newAddedNode,mySecondNode);
+	}
+	@Test
+	public void givenLinkedList_ShouldBe_SortedInAscending_ShouldPass() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(40);
+    	MyNode<Integer> myFourthNode=new MyNode<Integer>(70);
+    	MySortedLinkedList myLinkedList=new MySortedLinkedList();
+    	myLinkedList.addSorted(myFirstNode);
+    	myLinkedList.addSorted(mySecondNode);
+    	myLinkedList.addSorted(myThirdNode);
+    	myLinkedList.addSorted(myFourthNode);
+    	myLinkedList.printMyNode();
+    	boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.head.getNext().getNext().equals(myThirdNode) && myLinkedList.tail.equals(myFourthNode);
+		Assert.assertTrue(result);
 	}
 }
