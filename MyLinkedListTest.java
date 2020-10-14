@@ -1,6 +1,5 @@
 package com.capgemini.mylinkedlist;
 import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 public class MyLinkedListTest
@@ -84,5 +83,20 @@ public class MyLinkedListTest
     	boolean result=myLinkedList.head.equals(myFirstNode)&&
     					myLinkedList.tail.equals(mySecondNode);
     	Assert.assertTrue(result);
+	}
+	@Test
+	public void givenSearchNodeInLinkedList_ShouldPass() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(70);
+    	MyLinkedList myLinkedList=new MyLinkedList();
+    	myLinkedList.add(myFirstNode);
+    	myLinkedList.append(myThirdNode);
+    	myLinkedList.insert(myFirstNode,mySecondNode);
+    	myLinkedList.printMyNode();
+    	MyNode<Integer> search = (MyNode<Integer>) myLinkedList.search(30);
+		assertEquals(mySecondNode, search);
+    	Assert.assertEquals(search,mySecondNode);
 	}
 }
