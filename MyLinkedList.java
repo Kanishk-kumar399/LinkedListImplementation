@@ -70,6 +70,19 @@ public class MyLinkedList<K>
 		}
 		return null;
 	}
+	public INode searchKeyAndInsertNode(K key, INode newNode) {
+		INode temporaryNode = head;
+		while (temporaryNode != null && temporaryNode.getNext() != null) {
+			if (temporaryNode.getKey().equals(key)) {
+				break;
+			} else
+				temporaryNode = temporaryNode.getNext();
+		}
+		INode tempNode2 = temporaryNode.getNext();
+		temporaryNode.setNext(newNode);
+		newNode.setNext(tempNode2);
+		return temporaryNode;
+	}
 	public void printMyNode()
 	{
 		StringBuffer myNodes=new StringBuffer("My Nodes:");
